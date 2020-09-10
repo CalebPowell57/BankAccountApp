@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="LittleLittleTinyBank.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LittleLittleTinyBank"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:classes="using:LittleLittleTinyBank.Classes"
+    mc:Ignorable="d"
+    Background="WhiteSmoke"
+    Loaded="Page_Loaded">
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <GridView ItemsSource="{x:Bind BankAccounts, Mode=OneWay}" VerticalAlignment="Stretch">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="classes:BankAccount">
+                    <StackPanel Spacing="10" Background="Gray">
+                        <TextBlock FontSize="16" FontWeight="SemiBold" Foreground="Black">
+                            <Run Text="{x:Bind Name}"/>
+                            <Run Text="{x:Bind Number}"/>
+                        </TextBlock>
+
+                        <TextBlock FontSize="20" FontWeight="Bold" Text="{x:Bind Balance}" Foreground="Black" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+</Page>
